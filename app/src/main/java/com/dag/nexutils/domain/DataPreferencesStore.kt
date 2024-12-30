@@ -18,10 +18,9 @@ class DataPreferencesStore @Inject constructor(
     @ApplicationContext var context: Context,
 ) {
     companion object {
-        val FIRST_LOGIN = booleanPreferencesKey("firs_login")
         val TOKEN = stringPreferencesKey("token")
-        val MINING = stringPreferencesKey("mining")
-        val COLOR = intPreferencesKey("color")
+        val PRIVATE_KEY = stringPreferencesKey("private_key")
+        val PUBLIC_KEY = stringPreferencesKey("public_key")
     }
 
     private var loggedInScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
@@ -30,6 +29,12 @@ class DataPreferencesStore @Inject constructor(
         name = USER_PREFERENCES_NAME,
         scope = loggedInScope
     )
+
+    suspend fun removeAll(){
+        context.dataStore.edit {
+            it.clear()
+        }
+    }
 
     fun <T> read(key: Preferences.Key<T>) = context.dataStore.data.map { preferences ->
         preferences[key]

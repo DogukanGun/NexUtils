@@ -45,7 +45,7 @@ fun CustomTextField(
                 style = MaterialTheme.typography.labelLarge
             )
         },
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent

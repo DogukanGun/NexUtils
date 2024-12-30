@@ -12,6 +12,7 @@ import com.dag.nexutils.features.document_scanner.presentation.DocumentScannerVi
 import com.dag.nexutils.features.home.presentation.HomeView
 import com.dag.nexutils.features.text_extraction.presentation.TextExtractionView
 import com.dag.nexutils.features.wallet.presentation.WalletView
+import com.solana.mobilewalletadapter.clientlib.ActivityResultSender
 
 
 @Composable
@@ -19,6 +20,7 @@ fun DefaultNavigationHost(
     startDestination: Destination = Destination.HomeScreen,
     navigator: DefaultNavigator,
     modifier: Modifier = Modifier,
+    activityResultSender: ActivityResultSender,
     navBackStackEntryState: (NavBackStackEntry) -> Unit
 ) {
     val navController = rememberNavController()
@@ -50,7 +52,9 @@ fun DefaultNavigationHost(
             TextExtractionView()
         }
         composable<Destination.WalletScreen> {
-            WalletView()
+            WalletView(
+                activityResultSender = activityResultSender
+            )
         }
     }
 }

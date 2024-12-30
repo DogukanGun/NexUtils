@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 
 open class BaseVM<T: BaseVS> : ViewModel() {
 
-    private val _viewState = MutableStateFlow(null)
+    protected val _viewState = MutableStateFlow<T?>(null)
     val viewState: StateFlow<T?> get() = _viewState
 
 }

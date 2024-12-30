@@ -36,6 +36,7 @@ import com.dag.nexutils.ui.theme.NexUtilsTheme
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.solana.mobilewalletadapter.clientlib.ActivityResultSender
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -68,6 +69,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val activityResultSender = ActivityResultSender(this)
         setContent {
             NexUtilsTheme {
                 Box(
@@ -83,7 +85,8 @@ class MainActivity : ComponentActivity() {
                         ) {
                             DefaultNavigationHost(
                                 navigator = defaultNavigator,
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f),
+                                activityResultSender = activityResultSender
                             ) {
                                 currentRoute.value = it.destination.route
                                     ?.split(".")?.last()
