@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dag.nexutils.base.extensions.ObserveAsEvents
 import com.dag.nexutils.features.document_scanner.presentation.DocumentScannerView
 import com.dag.nexutils.features.home.presentation.HomeView
+import com.dag.nexutils.features.splash.Splash
 import com.dag.nexutils.features.text_extraction.presentation.TextExtractionView
 import com.dag.nexutils.features.wallet.presentation.WalletView
 import com.solana.mobilewalletadapter.clientlib.ActivityResultSender
@@ -17,7 +18,7 @@ import com.solana.mobilewalletadapter.clientlib.ActivityResultSender
 
 @Composable
 fun DefaultNavigationHost(
-    startDestination: Destination = Destination.HomeScreen,
+    startDestination: Destination = Destination.Splash,
     navigator: DefaultNavigator,
     modifier: Modifier = Modifier,
     activityResultSender: ActivityResultSender,
@@ -42,6 +43,9 @@ fun DefaultNavigationHost(
         modifier = modifier,
         startDestination = startDestination
     ) {
+        composable<Destination.Splash> {
+            Splash()
+        }
         composable<Destination.HomeScreen> {
             HomeView(navController)
         }

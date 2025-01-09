@@ -14,10 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dag.nexutils.R
 import com.dag.nexutils.features.home.presentation.components.ClickType
 import com.dag.nexutils.features.home.presentation.components.HomeCard
-import com.dag.nexutils.features.home.presentation.components.HomeCardProps
 import com.dag.nexutils.features.home.presentation.components.features
 
 

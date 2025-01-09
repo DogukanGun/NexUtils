@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainVM @Inject constructor(
-    private var dataPreference: DataPreferencesStore,
     private var defaultNavigator: DefaultNavigator
 ): BaseVM<MainVS>() {
 
